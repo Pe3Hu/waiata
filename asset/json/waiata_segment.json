@@ -1,0 +1,62 @@
+[
+ {
+  "title": "intro",
+  "combination 0": 8,
+  "combination 1": 9,
+  "type 0": "Y",
+  "limit": 1
+ },
+ {
+  "title": "verse",
+  "combination 0": 25,
+  "combination 1": 27,
+  "combination 2": 32,
+  "type 0": "A",
+  "type 1": "B",
+  "limit": 3
+ },
+ {
+  "title": "prechorus",
+  "combination 0": 16,
+  "type 0": "B",
+  "type 1": "С",
+  "limit": 1
+ },
+ {
+  "title": "chorus",
+  "combination 0": 25,
+  "combination 1": 27,
+  "combination 2": 32,
+  "type 0": "A",
+  "type 1": "B",
+  "limit": 3
+ },
+ {
+  "title": "postchorus",
+  "combination 0": 16,
+  "type 0": "X",
+  "limit": 1
+ },
+ {
+  "title": "middle",
+  "combination 0": 8,
+  "combination 1": 9,
+  "type 0": "B",
+  "type 1": "С",
+  "limit": 1
+ },
+ {
+  "title": "break",
+  "combination 0": 16,
+  "type 0": "B",
+  "type 1": "С",
+  "limit": 1
+ },
+ {
+  "title": "outro",
+  "combination 0": 8,
+  "combination 1": 9,
+  "type 0": "Z",
+  "limit": 1
+ }
+]

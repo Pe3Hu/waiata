@@ -1,0 +1,58 @@
+[
+ {
+  "title": "A",
+  "parity": "vowel",
+  "extreme": "edge",
+  "phase": "opening",
+  "hue": 0
+ },
+ {
+  "title": "B",
+  "parity": "consonant",
+  "extreme": "middle",
+  "phase": "opening",
+  "hue": 30
+ },
+ {
+  "title": "C",
+  "parity": "consonant",
+  "extreme": "middle",
+  "phase": "opening",
+  "hue": 60
+ },
+ {
+  "title": "D",
+  "parity": "consonant",
+  "extreme": "middle",
+  "phase": "opening",
+  "hue": 120
+ },
+ {
+  "title": "E",
+  "parity": "vowel",
+  "extreme": "edge",
+  "phase": "opening",
+  "hue": 190
+ },
+ {
+  "title": "X",
+  "parity": "consonant",
+  "extreme": "edge",
+  "phase": "ending",
+  "hue": 230
+ },
+ {
+  "title": "Y",
+  "parity": "vowel",
+  "extreme": "middle",
+  "phase": "ending",
+  "hue": 270
+ },
+ {
+  "title": "Z",
+  "parity": "consonant",
+  "extreme": "edge",
+  "phase": "ending",
+  "hue": 300
+ }
+]

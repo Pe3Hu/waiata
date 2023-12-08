@@ -1,0 +1,16 @@
+res://scene/1/word.tscn
+res://script/Global.gd
+res://scene/1/song.tscn
+res://scene/1/segment.tscn
+res://scene/1/rune.tscn
+res://scene/1/poet.tscn
+res://scene/1/cradle.gd
+res://scene/1/cradle.tscn
+res://scene/1/poet.gd
+res://scene/1/song.gd
+res://asset/json/waiata_combination.json
+res://scene/0/game.gd
+res://scene/1/segment.gd
+res://scene/1/word.gd
+res://scene/1/rune.gd
+res://asset/json/waiata_rune.json
