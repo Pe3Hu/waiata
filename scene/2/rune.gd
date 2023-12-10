@@ -16,4 +16,3 @@ func set_attributes(input_: Dictionary) -> void:
 	var style = StyleBoxFlat.new()
 	bg.set("theme_override_styles/panel", style)
 	style.bg_color = Global.color.rune[title]
-

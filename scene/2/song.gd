@@ -17,6 +17,8 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func init_segments() -> void:
+	segments.set("theme_override_constants/separation", Global.num.gap.segment)
+	
 	for callsign in arrangement.segments:
 		var input = {}
 		input.song = self

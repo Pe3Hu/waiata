@@ -16,6 +16,7 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func init_runes() -> void:
+	runes.set("theme_override_constants/separation", Global.num.gap.rune)
 	var length = 2
 	
 	match type:

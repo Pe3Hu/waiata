@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://co1k6kn51aprx"]
+[gd_scene load_steps=4 format=3 uid="uid://co1k6kn51aprx"]
+
+[ext_resource type="Script" path="res://scene/3/staff.gd" id="1_q63lw"]
+[ext_resource type="PackedScene" uid="uid://bi3eyni8kcyqa" path="res://scene/3/space.tscn" id="2_elami"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
@@ -17,8 +20,19 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_q63lw")
 
 [node name="BG" type="Panel" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="Spaces" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Raptures" parent="Spaces" instance=ExtResource("2_elami")]
+layout_mode = 2
+
+[node name="Slurs" parent="Spaces" instance=ExtResource("2_elami")]
+layout_mode = 2

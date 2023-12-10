@@ -1,0 +1,212 @@
+[
+ {
+  "index": 0,
+  "rune 0": "B",
+  "rune 1": "A",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 1,
+  "rune 0": "C",
+  "rune 1": "A",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 2,
+  "rune 0": "D",
+  "rune 1": "A",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 3,
+  "rune 0": "X",
+  "rune 1": "A",
+  "parity": "consonant",
+  "extreme": "edge"
+ },
+ {
+  "index": 4,
+  "rune 0": "Z",
+  "rune 1": "A",
+  "parity": "consonant",
+  "extreme": "edge"
+ },
+ {
+  "index": 5,
+  "rune 0": "B",
+  "rune 1": "E",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 6,
+  "rune 0": "C",
+  "rune 1": "E",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 7,
+  "rune 0": "D",
+  "rune 1": "E",
+  "parity": "consonant",
+  "phase": "opening"
+ },
+ {
+  "index": 8,
+  "rune 0": "X",
+  "rune 1": "E",
+  "parity": "consonant",
+  "extreme": "edge"
+ },
+ {
+  "index": 9,
+  "rune 0": "Z",
+  "rune 1": "E",
+  "parity": "consonant",
+  "extreme": "edge"
+ },
+ {
+  "index": 10,
+  "rune 0": "B",
+  "rune 1": "Y",
+  "parity": "consonant",
+  "extreme": "middle"
+ },
+ {
+  "index": 11,
+  "rune 0": "C",
+  "rune 1": "Y",
+  "parity": "consonant",
+  "extreme": "middle"
+ },
+ {
+  "index": 12,
+  "rune 0": "D",
+  "rune 1": "Y",
+  "parity": "consonant",
+  "extreme": "middle"
+ },
+ {
+  "index": 13,
+  "rune 0": "X",
+  "rune 1": "Y",
+  "parity": "consonant",
+  "phase": "ending"
+ },
+ {
+  "index": 14,
+  "rune 0": "Z",
+  "rune 1": "Y",
+  "parity": "consonant",
+  "phase": "ending"
+ },
+ {
+  "index": 15,
+  "rune 0": "A",
+  "rune 1": "B",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 16,
+  "rune 0": "E",
+  "rune 1": "B",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 17,
+  "rune 0": "Y",
+  "rune 1": "B",
+  "parity": "vowel",
+  "extreme": "middle"
+ },
+ {
+  "index": 18,
+  "rune 0": "A",
+  "rune 1": "C",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 19,
+  "rune 0": "E",
+  "rune 1": "C",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 20,
+  "rune 0": "Y",
+  "rune 1": "C",
+  "parity": "vowel",
+  "extreme": "middle"
+ },
+ {
+  "index": 21,
+  "rune 0": "A",
+  "rune 1": "D",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 22,
+  "rune 0": "E",
+  "rune 1": "D",
+  "parity": "vowel",
+  "phase": "opening"
+ },
+ {
+  "index": 23,
+  "rune 0": "Y",
+  "rune 1": "D",
+  "parity": "vowel",
+  "extreme": "middle"
+ },
+ {
+  "index": 24,
+  "rune 0": "A",
+  "rune 1": "X",
+  "parity": "vowel",
+  "extreme": "edge"
+ },
+ {
+  "index": 25,
+  "rune 0": "E",
+  "rune 1": "X",
+  "parity": "vowel",
+  "extreme": "edge"
+ },
+ {
+  "index": 26,
+  "rune 0": "Y",
+  "rune 1": "X",
+  "parity": "vowel",
+  "phase": "ending"
+ },
+ {
+  "index": 27,
+  "rune 0": "A",
+  "rune 1": "Z",
+  "parity": "vowel",
+  "extreme": "edge"
+ },
+ {
+  "index": 28,
+  "rune 0": "E",
+  "rune 1": "Z",
+  "parity": "vowel",
+  "extreme": "edge"
+ },
+ {
+  "index": 29,
+  "rune 0": "Y",
+  "rune 1": "Z",
+  "parity": "vowel",
+  "phase": "ending"
+ }
+]

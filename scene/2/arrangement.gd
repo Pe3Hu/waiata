@@ -8,6 +8,7 @@ var segments = []
 
 func set_attributes(input_: Dictionary) -> void:
 	song = input_.song
+	
 	init_segments()
 
 
@@ -66,7 +67,6 @@ func init_segments() -> void:
 				options[_type].erase(titles[titles.keys()[_j]])
 		
 		triples.append(titles)
-		print(_i, titles)
 		
 		for _type in type:
 			var title = titles[_type]
@@ -76,9 +76,5 @@ func init_segments() -> void:
 			
 			indexs[_type] += 1
 			segments.append(title)
-			
-			#print([_type, title])
 	
 	segments.append(options["Z"].pick_random())
-	print(options)
-	print(segments)

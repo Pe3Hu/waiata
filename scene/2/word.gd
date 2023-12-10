@@ -15,6 +15,7 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func init_syllables() -> void:
+	syllables.set("theme_override_constants/separation", Global.num.gap.syllable)
 	var options = Global.dict.syllable.types[length]
 	var option = options.front()
 	
@@ -26,4 +27,14 @@ func init_syllables() -> void:
 		var syllable = Global.scene.syllable.instantiate()
 		syllables.add_child(syllable)
 		syllable.set_attributes(input)
+		finality_check()
 
+
+func finality_check() -> void:
+	var l = 0
+	
+	for syllable in syllables.get_children():
+		l += syllable.runes.get_child_count()
+	
+	if l == length:
+		segment.song.poet.staff.write_word(self)

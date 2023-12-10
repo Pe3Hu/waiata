@@ -25,11 +25,20 @@ func _ready() -> void:
 func init_arr() -> void:
 	arr.word = [3, 5, 7]
 	arr.arrangement = ["AAA", "ABA", "AABA", "ABABCB"]
+	arr.token = ["slur", "rapture"]
+	arr.state = ["vigor", "standard", "fatigue"]
 
 
 func init_num() -> void:
 	num.index = {}
+	num.index.poet = 0
 	num.index.rune = 0
+	
+	num.gap = {}
+	num.gap.segment = 10
+	num.gap.word = 0
+	num.gap.syllable = 5
+	num.gap.rune = 0
 
 
 func init_dict() -> void:
@@ -88,6 +97,11 @@ func init_neighbor() -> void:
 
 func init_rune() -> void:
 	dict.rune = {}
+	
+	dict.rune.token = {}
+	dict.rune.token["vowel"] = "rapture"
+	dict.rune.token["consonant"] = "slur"
+	
 	dict.rune.title = {}
 	color.rune = {}
 	var h = 360.0
@@ -151,8 +165,8 @@ func init_combination() -> void:
 			dict.combination.words[combination.words] = []
 			
 		dict.combination.index[combination.index] = data
-		dict.combination.runes[combination.runes].append(combination.index) 
-		dict.combination.words[combination.words].append(combination.index) 
+		dict.combination.runes[combination.runes].append(combination.index)
+		dict.combination.words[combination.words].append(combination.index)
 
 
 func init_segment() -> void:
@@ -204,13 +218,54 @@ func init_syllable() -> void:
 	
 	for _i in dict.rune.parity.keys().size():
 		var _j = (_i + 1) % dict.rune.parity.keys().size()
-		var firsts = dict.rune.parity[dict.rune.parity.keys()[_i]]
-		var seconds = dict.rune.parity[dict.rune.parity.keys()[_j]]
+		var firsts = dict.rune.parity[dict.rune.parity.keys()[_j]]
+		var seconds = dict.rune.parity[dict.rune.parity.keys()[_i]]
 		
-		for first in firsts:
-			for second in seconds:
+		for second in seconds:
+			for first in firsts:
 				var couple = [first, second]
 				dict.syllable.couples.append(couple)
+	
+	dict.syllable.index = {}
+	dict.syllable.parities = {}
+	dict.syllable.extremes = {}
+	dict.syllable.phases = {}
+	
+	
+	var path = "res://asset/json/waiata_syllable.json"
+	var array = load_data(path)
+	
+	for syllable in array:
+		var data = {}
+		data.runes = []
+		data.tags = []
+		
+		for key in syllable:
+			syllable.index = int(syllable.index)
+			
+			if key != "index":
+				var words = key.split(" ")
+				
+				if words.size() > 1:
+					data.runes.append(syllable[key])
+				else:
+					data.tags.append(syllable[key])
+		
+		if !dict.syllable.parities.has(syllable.parity):
+			dict.syllable.parities[syllable.parity] = []
+		
+		if syllable.has("syllable"):
+			if !dict.syllable.extremes.has(syllable.extreme):
+				dict.syllable.extremes[syllable.extreme] = []
+				dict.syllable.extremes[syllable.extreme].append(syllable.index)
+		
+		if syllable.has("syllable"):
+			if !dict.syllable.phases.has(syllable.phase):
+				dict.syllable.phases[syllable.phase] = []
+				dict.syllable.phases[syllable.phase].append(syllable.index)
+		
+		dict.syllable.index[syllable.index] = data
+		dict.syllable.parities[syllable.parity].append(syllable.index)
 
 
 func init_node() -> void:
@@ -228,6 +283,7 @@ func init_scene() -> void:
 	scene.rune = load("res://scene/2/rune.tscn")
 	
 	scene.lectern = load("res://scene/3/lectern.tscn")
+	scene.token = load("res://scene/3/token.tscn")
 
 
 func init_vec():
@@ -241,7 +297,10 @@ func init_vec():
 	vec.size.box = Vector2(100, 100)
 	vec.size.bar = Vector2(120, 12)
 	
-	vec.size.rune = Vector2(40, 40)
+	vec.size.rune = Vector2(16, 16)
+	vec.size.token = Vector2(16, 16)
+	vec.size.state = Vector2(128, 16)
+	#vec.size.token = Vector2(8, 8)
 	
 	init_window_size()
 
@@ -255,7 +314,21 @@ func init_window_size():
 
 func init_color():
 	var h = 360.0
-	#color.rune.a = Color.from_hsv(0 / h, 0.9, 0.6)
+	
+	color.token = {}
+	color.token.slur = Color.from_hsv(0 / h, 0.9, 0.6)
+	color.token.rapture = Color.from_hsv(210 / h, 0.9, 0.6)
+	
+	color.state = {}
+	color.state.vigor = {}
+	color.state.vigor.fill = Color.from_hsv(120 / h, 1, 0.9)
+	color.state.vigor.background = Color.from_hsv(120 / h, 0.25, 0.9)
+	color.state.standard = {}
+	color.state.standard.fill = Color.from_hsv(30 / h, 1, 0.9)
+	color.state.standard.background = Color.from_hsv(30 / h, 0.25, 0.9)
+	color.state.fatigue = {}
+	color.state.fatigue.fill = Color.from_hsv(0, 1, 0.9)
+	color.state.fatigue.background = Color.from_hsv(0, 0.25, 0.9)
 
 
 func save(path_: String, data_: String):
