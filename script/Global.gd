@@ -37,6 +37,7 @@ func init_dict() -> void:
 	init_rune()
 	init_combination()
 	init_segment()
+	init_syllable()
 
 
 func init_neighbor() -> void:
@@ -105,6 +106,15 @@ func init_rune() -> void:
 					data[key] = rune[key]
 		
 		dict.rune.title[rune.title] = data
+		
+		for key in data:
+			if !dict.rune.has(key):
+				dict.rune[key] = {}
+			
+			if !dict.rune[key].has(data[key]):
+				dict.rune[key][data[key]] = []
+			
+			dict.rune[key][data[key]].append(rune.title)
 
 
 func init_combination() -> void:
@@ -113,12 +123,14 @@ func init_combination() -> void:
 	dict.combination.runes = {}
 	dict.combination.words = {}
 	color.combination = {}
-	var h = 360.0
 	
 	var path = "res://asset/json/waiata_combination.json"
 	var array = load_data(path)
 	
 	for combination in array:
+		combination.index = int(combination.index)
+		combination.runes = int(combination.runes)
+		combination.words = int(combination.words)
 		var data = {}
 		data.length = {}
 		
@@ -127,9 +139,10 @@ func init_combination() -> void:
 				var words = key.split(" ")
 				
 				if words.has("length"):
-					data[words[0]][int(words[1])] = combination[key]
+					if combination[key] > 0:
+						data[words[0]][int(words[1])] = int(combination[key])
 				else:
-					data[key] = combination[key]
+					data[key] = int(combination[key])
 		
 		if !dict.combination.runes.has(combination.runes):
 			dict.combination.runes[combination.runes] = []
@@ -147,7 +160,6 @@ func init_segment() -> void:
 	dict.segment.title = {}
 	dict.segment.types = {}
 	color.segment = {}
-	var h = 360.0
 	
 	var path = "res://asset/json/waiata_segment.json"
 	var array = load_data(path)
@@ -164,12 +176,41 @@ func init_segment() -> void:
 					
 					if !data.has(words[0]):
 						data[words[0]] = []
-						
+					
+					if words.has("combination"):
+						segment[key] = int(segment[key])
+					
 					data[words[0]].append(segment[key])
 				else:
 					data[key] = segment[key]
 		
 		dict.segment.title[segment.title] = data
+		
+		for type in data.types:
+			if !dict.segment.types.has(type):
+				dict.segment.types[type] = []
+			
+			dict.segment.types[type].append(segment.title)
+
+
+func init_syllable() -> void:
+	dict.syllable = {}
+	dict.syllable.types = {}
+	dict.syllable.types[3] = [["base"]]
+	dict.syllable.types[5] = [["prefix", "base"], ["base", "suffix"]]
+	dict.syllable.types[7] = [["prefix", "base", "suffix"]]
+	
+	dict.syllable.couples = []
+	
+	for _i in dict.rune.parity.keys().size():
+		var _j = (_i + 1) % dict.rune.parity.keys().size()
+		var firsts = dict.rune.parity[dict.rune.parity.keys()[_i]]
+		var seconds = dict.rune.parity[dict.rune.parity.keys()[_j]]
+		
+		for first in firsts:
+			for second in seconds:
+				var couple = [first, second]
+				dict.syllable.couples.append(couple)
 
 
 func init_node() -> void:
@@ -178,11 +219,15 @@ func init_node() -> void:
 
 func init_scene() -> void:
 	scene.poet = load("res://scene/1/poet.tscn")
-	scene.song = load("res://scene/1/song.tscn")
-	scene.segment = load("res://scene/1/segment.tscn")
-	scene.word = load("res://scene/1/word.tscn")
-	scene.rune = load("res://scene/1/rune.tscn")
-	pass
+	
+	scene.song = load("res://scene/2/song.tscn")
+	scene.arrangement = load("res://scene/2/arrangement.tscn")
+	scene.segment = load("res://scene/2/segment.tscn")
+	scene.word = load("res://scene/2/word.tscn")
+	scene.syllable = load("res://scene/2/syllable.tscn")
+	scene.rune = load("res://scene/2/rune.tscn")
+	
+	scene.lectern = load("res://scene/3/lectern.tscn")
 
 
 func init_vec():

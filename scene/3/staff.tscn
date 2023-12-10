@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4lwsdm6pnwp"]
-
-[ext_resource type="Script" path="res://scene/1/song.gd" id="1_2g1he"]
+[gd_scene load_steps=2 format=3 uid="uid://co1k6kn51aprx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
-[node name="Song" type="MarginContainer"]
+[node name="Staff" type="MarginContainer"]
 custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,14 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_2g1he")
 
 [node name="BG" type="Panel" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
-
-[node name="Segments" type="HBoxContainer" parent="."]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1

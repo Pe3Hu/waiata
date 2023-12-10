@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cciswurywe2yj"]
-
-[ext_resource type="Script" path="res://scene/1/rune.gd" id="1_umea8"]
+[gd_scene load_steps=2 format=3 uid="uid://cw7b04busr6ce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
-[node name="Rune" type="MarginContainer"]
+[node name="Lactern" type="MarginContainer"]
 custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,8 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_umea8")
 
 [node name="BG" type="Panel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
