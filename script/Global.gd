@@ -27,6 +27,9 @@ func init_arr() -> void:
 	arr.arrangement = ["AAA", "ABA", "AABA", "ABABCB"]
 	arr.token = ["slur", "rapture"]
 	arr.state = ["vigor", "standard", "fatigue"]
+	arr.parity = ["consonant", "vowel"]
+	arr.extreme = ["edge", "middle"]
+	arr.phase = ["opening", "ending"]
 
 
 func init_num() -> void:
@@ -47,6 +50,7 @@ func init_dict() -> void:
 	init_combination()
 	init_segment()
 	init_syllable()
+	init_tag()
 
 
 func init_neighbor() -> void:
@@ -97,11 +101,6 @@ func init_neighbor() -> void:
 
 func init_rune() -> void:
 	dict.rune = {}
-	
-	dict.rune.token = {}
-	dict.rune.token["vowel"] = "rapture"
-	dict.rune.token["consonant"] = "slur"
-	
 	dict.rune.title = {}
 	color.rune = {}
 	var h = 360.0
@@ -267,6 +266,16 @@ func init_syllable() -> void:
 		dict.syllable.index[syllable.index] = data
 		dict.syllable.parities[syllable.parity].append(syllable.index)
 
+func init_tag() -> void:
+	dict.tag = {}
+	dict.tag.syllable = {}
+	dict.tag.syllable["edge"] = "next"
+	dict.tag.syllable["middle"] = "current"
+	dict.tag.syllable["opening"] = "first"
+	dict.tag.syllable["ending"] = "last"
+	dict.tag.syllable["consonant"] = "rapture"
+	dict.tag.syllable["vowel"] = "slur"
+	
 
 func init_node() -> void:
 	node.game = get_node("/root/Game")
@@ -281,6 +290,7 @@ func init_scene() -> void:
 	scene.word = load("res://scene/2/word.tscn")
 	scene.syllable = load("res://scene/2/syllable.tscn")
 	scene.rune = load("res://scene/2/rune.tscn")
+	scene.tag = load("res://scene/2/tag.tscn")
 	
 	scene.lectern = load("res://scene/3/lectern.tscn")
 	scene.token = load("res://scene/3/token.tscn")
@@ -297,7 +307,7 @@ func init_vec():
 	vec.size.box = Vector2(100, 100)
 	vec.size.bar = Vector2(120, 12)
 	
-	vec.size.rune = Vector2(16, 16)
+	vec.size.rune = Vector2(20, 20)
 	vec.size.token = Vector2(16, 16)
 	vec.size.state = Vector2(128, 16)
 	#vec.size.token = Vector2(8, 8)

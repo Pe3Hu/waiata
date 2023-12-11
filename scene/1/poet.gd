@@ -15,7 +15,8 @@ func set_attributes(input_: Dictionary) -> void:
 	Global.num.index.poet += 1
 	
 	set_nodes()
-	staff.spaces_overlay()
+	staff.use_tags()
+	#staff.spaces_overlay()
 
 
 func set_nodes() -> void:

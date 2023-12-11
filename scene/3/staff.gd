@@ -23,28 +23,46 @@ func init_spaces() -> void:
 
 
 func write_word(word_: MarginContainer) -> void:
-	var tokens = {}
+	var tag = word_.get_syllabe_based_on_type("base").tag
+	var type = Global.dict.tag.syllable[tag]
+	var input = {}
+	input.space = get(type+"s")
+	input.type = type
+	input.subtype = "standard"
+	input.value = word_.length
 	
-	for token in Global.arr.token:
-		tokens[token] = 0
-	
-	
-	for syllable in word_.syllables.get_children():
-		for rune in syllable.runes.get_children():
-			var parity = Global.dict.rune.title[rune.title].parity
-			var token = Global.dict.rune.token[parity]
-			tokens[token] += 1
-	
-	for type in tokens:
-		var input = {}
-		input.space = get(type+"s")
-		input.type = type
-		input.subtype = "standard"
-		input.value = tokens[type]
-		
-		var token = Global.scene.token.instantiate()
-		input.space.tokens.add_child(token)
-		token.set_attributes(input)
+	word_.token = Global.scene.token.instantiate()
+	input.space.tokens.add_child(word_.token)
+	word_.token.set_attributes(input)
+
+
+func use_tags() -> void:
+	for segment in poet.song.segments.get_children():
+		for word in segment.words.get_children():
+			var syllable = word.get_syllabe_based_on_type("base")
+			var type = Global.dict.tag.syllable[syllable.tag]
+			var space = get(type+"s")
+			
+			for tag in word.tags.get_children():
+				match tag.type:
+					"slur":
+						word.token.stack.change_number(2)
+					"rapture":
+						word.token.stack.change_number(3)
+					"current":
+						word.token.stack.change_number(4)
+					"next":
+						var index = word.token.get_index() + 1
+						
+						if index < space.tokens.get_child_count():
+							var next = space.tokens.get_child(index)
+							next.stack.change_number(5)
+					"first":
+						var first = space.tokens.get_child(0)
+						first.stack.change_number(9)
+					"last":
+						var last = space.tokens.get_child(space.tokens.get_child_count()-1)
+						last.stack.change_number(11)
 
 
 func spaces_overlay() -> void:

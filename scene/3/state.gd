@@ -56,4 +56,3 @@ func reset() -> void:
 	bar.value = bar.max_value
 	value.text = str(bar.value)
 	visible = true
-

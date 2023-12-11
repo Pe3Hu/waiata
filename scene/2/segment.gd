@@ -25,8 +25,8 @@ func init_words() -> void:
 	if _words.size() > 1:
 		index = int(_words[1])
 	
-	var runes = int(Global.dict.segment.title[title].combinations[0])
-	var _index = Global.dict.combination.runes[runes][0]
+	var runes = int(Global.dict.segment.title[title].combinations.pick_random())
+	var _index = Global.dict.combination.runes[runes].pick_random()
 	var description = Global.dict.combination.index[_index]
 	
 	for length in description.length:

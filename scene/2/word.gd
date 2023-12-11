@@ -1,10 +1,12 @@
 extends MarginContainer
 
 
-@onready var syllables = $Syllables
+@onready var syllables = $VBox/Syllables
+@onready var tags = $VBox/Tags
 
 var segment = null
 var length = null
+var token = null
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -17,7 +19,7 @@ func set_attributes(input_: Dictionary) -> void:
 func init_syllables() -> void:
 	syllables.set("theme_override_constants/separation", Global.num.gap.syllable)
 	var options = Global.dict.syllable.types[length]
-	var option = options.front()
+	var option = options.pick_random()
 	
 	for type in option:
 		var input = {}
@@ -38,3 +40,12 @@ func finality_check() -> void:
 	
 	if l == length:
 		segment.song.poet.staff.write_word(self)
+
+
+func get_syllabe_based_on_type(type_: String) -> Variant:
+	for syllable in syllables.get_children():
+		if syllable.type == type_:
+			return syllable
+	
+	return null
+
